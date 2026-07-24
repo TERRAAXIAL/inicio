@@ -1,0 +1,1250 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#080307">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="Página inicial oficial de Marvel's Terra Axial — arquivo de ambientação, cronologia, facções, pacotes e legados.">
+  <title>Marvel’s Terra Axial — Arquivo Central</title>
+  <link rel="icon" type="image/png" href="https://i.imgur.com/yiuD6Ad.png">
+  <link rel="preconnect" href="https://i.imgur.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@400;500;600;700;800&family=Share+Tech+Mono&family=Teko:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --black: #030204;
+      --black-soft: #0a0508;
+      --wine: #3a0717;
+      --wine-deep: #19040c;
+      --red: #ff1c36;
+      --red-soft: #bd0c27;
+      --silver: #d9dde4;
+      --silver-dim: #7e8792;
+      --green: #76ffb6;
+      --yellow: #ffd86b;
+      --panel: rgba(11, 6, 10, 0.84);
+      --line: rgba(255, 255, 255, 0.16);
+      --line-red: rgba(255, 28, 54, 0.55);
+      --sidebar-width: 252px;
+      --ease-cinematic: cubic-bezier(.18, .8, .2, 1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html { min-height: 100%; background: var(--black); }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      overflow-x: hidden;
+      color: var(--silver);
+      background:
+        radial-gradient(circle at 82% 12%, rgba(255, 28, 54, 0.14), transparent 28%),
+        radial-gradient(circle at 28% 92%, rgba(83, 7, 31, 0.34), transparent 38%),
+        linear-gradient(145deg, #020103 0%, #0d0308 44%, #020204 100%);
+      font-family: "Oxanium", system-ui, sans-serif;
+      scrollbar-color: var(--red-soft) #080407;
+      scrollbar-width: thin;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: -20%;
+      z-index: -5;
+      opacity: .58;
+      background:
+        linear-gradient(rgba(255, 255, 255, .025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 28, 54, .028) 1px, transparent 1px);
+      background-size: 46px 46px;
+      transform: perspective(760px) rotateX(62deg) translateY(-16%);
+      transform-origin: center top;
+      animation: gridDrift 18s linear infinite;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: 9998;
+      pointer-events: none;
+      opacity: .22;
+      mix-blend-mode: screen;
+      background: repeating-linear-gradient(
+        180deg,
+        transparent 0,
+        transparent 3px,
+        rgba(255,255,255,.06) 4px
+      );
+      animation: scanShift 7s linear infinite;
+    }
+
+    a { color: inherit; }
+    button { font: inherit; }
+
+    ::selection { color: #fff; background: rgba(255, 28, 54, .76); }
+
+    .noise {
+      position: fixed;
+      inset: 0;
+      z-index: 9997;
+      pointer-events: none;
+      opacity: .065;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.85'/%3E%3C/svg%3E");
+      animation: noiseMove .28s steps(2) infinite;
+    }
+
+    .ambient-beam {
+      position: fixed;
+      top: -18vh;
+      right: 5vw;
+      z-index: -3;
+      width: 48vw;
+      height: 140vh;
+      pointer-events: none;
+      opacity: .22;
+      filter: blur(20px);
+      background: linear-gradient(92deg, transparent, rgba(255, 26, 55, .38), transparent 62%);
+      transform: rotate(13deg);
+      animation: beamPulse 8s ease-in-out infinite alternate;
+    }
+
+    .app-shell {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
+    }
+
+    .sidebar {
+      position: fixed;
+      inset: 0 auto 0 0;
+      z-index: 100;
+      width: var(--sidebar-width);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      border-right: 1px solid rgba(255, 255, 255, .13);
+      background:
+        linear-gradient(180deg, rgba(54, 6, 23, .94), rgba(8, 3, 7, .97) 42%, rgba(3, 2, 4, .98)),
+        var(--black);
+      box-shadow: 30px 0 70px rgba(0, 0, 0, .48);
+      isolation: isolate;
+    }
+
+    .sidebar::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      opacity: .2;
+      background:
+        linear-gradient(135deg, transparent 0 46%, rgba(255,255,255,.08) 47% 48%, transparent 49%),
+        repeating-linear-gradient(180deg, transparent 0 19px, rgba(255,28,54,.08) 20px);
+      animation: sidebarData 13s linear infinite;
+    }
+
+    .sidebar::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: -1px;
+      width: 3px;
+      height: 34%;
+      background: linear-gradient(transparent, var(--red), transparent);
+      box-shadow: 0 0 22px var(--red);
+      animation: sidebarScanner 5.8s ease-in-out infinite;
+    }
+
+    .brand {
+      position: relative;
+      display: grid;
+      place-items: center;
+      min-height: 178px;
+      padding: 24px 20px 16px;
+      text-decoration: none;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,.025), transparent);
+    }
+
+    .brand::before,
+    .brand::after {
+      content: "";
+      position: absolute;
+      left: 20px;
+      right: 20px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--red), transparent);
+      opacity: .55;
+    }
+
+    .brand::before { top: 18px; }
+    .brand::after { bottom: 18px; }
+
+    .brand img {
+      display: block;
+      width: min(100%, 208px);
+      max-height: 112px;
+      object-fit: contain;
+      filter: drop-shadow(0 0 18px rgba(255, 28, 54, .24));
+      animation: logoSignal 5.4s ease-in-out infinite;
+    }
+
+    .brand-fallback {
+      display: none;
+      text-align: center;
+      color: #fff;
+      font: 700 34px/1 "Teko", sans-serif;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+    }
+
+    .brand-code {
+      position: absolute;
+      right: 17px;
+      bottom: 7px;
+      color: rgba(255,255,255,.42);
+      font: 10px/1 "Share Tech Mono", monospace;
+      letter-spacing: .12em;
+    }
+
+    .nav-title {
+      margin: 20px 22px 10px;
+      color: var(--silver-dim);
+      font: 11px/1 "Share Tech Mono", monospace;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    .nav-list {
+      display: grid;
+      gap: 5px;
+      margin: 0;
+      padding: 0 14px;
+      list-style: none;
+    }
+
+    .nav-link {
+      position: relative;
+      display: grid;
+      grid-template-columns: 28px 1fr 18px;
+      align-items: center;
+      min-height: 48px;
+      padding: 7px 11px;
+      overflow: hidden;
+      color: rgba(223, 227, 233, .72);
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: .075em;
+      font: 600 14px/1 "Oxanium", sans-serif;
+      border: 1px solid transparent;
+      clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 9px 100%, 0 calc(100% - 9px));
+      transition: color .3s ease, border-color .3s ease, transform .3s var(--ease-cinematic), background .3s ease;
+    }
+
+    .nav-link::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(90deg, rgba(255, 28, 54, .2), rgba(255, 28, 54, .03));
+      transform: translateX(-102%);
+      transition: transform .45s var(--ease-cinematic);
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      inset: auto 9px 5px 39px;
+      height: 1px;
+      background: linear-gradient(90deg, var(--red), transparent);
+      opacity: 0;
+      transform: scaleX(.2);
+      transform-origin: left;
+      transition: opacity .3s ease, transform .4s ease;
+    }
+
+    .nav-link:hover,
+    .nav-link:focus-visible,
+    .nav-link.is-active {
+      color: #fff;
+      border-color: rgba(255, 28, 54, .38);
+      background: rgba(255, 255, 255, .025);
+      transform: translateX(4px);
+      outline: none;
+    }
+
+    .nav-link:hover::before,
+    .nav-link:focus-visible::before,
+    .nav-link.is-active::before { transform: translateX(0); }
+
+    .nav-link:hover::after,
+    .nav-link:focus-visible::after,
+    .nav-link.is-active::after {
+      opacity: 1;
+      transform: scaleX(1);
+    }
+
+    .nav-index {
+      color: var(--red);
+      font: 11px/1 "Share Tech Mono", monospace;
+    }
+
+    .nav-pulse {
+      width: 5px;
+      height: 5px;
+      justify-self: end;
+      border-radius: 50%;
+      background: rgba(255,255,255,.24);
+      box-shadow: 0 0 0 transparent;
+    }
+
+    .nav-link.is-active .nav-pulse {
+      background: var(--green);
+      box-shadow: 0 0 12px var(--green);
+      animation: pulse 1.7s ease-in-out infinite;
+    }
+
+    .sidebar-meta {
+      margin-top: auto;
+      padding: 18px 22px 22px;
+      border-top: 1px solid var(--line);
+      color: rgba(255,255,255,.46);
+      font: 10px/1.55 "Share Tech Mono", monospace;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .sidebar-meta strong {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 5px;
+      color: var(--green);
+      font-weight: 400;
+    }
+
+    .sidebar-meta strong::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 12px var(--green);
+      animation: pulse 1.8s ease-in-out infinite;
+    }
+
+    .main {
+      grid-column: 2;
+      min-width: 0;
+      min-height: 100vh;
+      padding: clamp(18px, 2.3vw, 38px);
+    }
+
+    .topbar {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 18px;
+      align-items: center;
+      min-height: 82px;
+      margin-bottom: clamp(17px, 2vw, 30px);
+      padding: 12px 18px 12px 24px;
+      border: 1px solid var(--line);
+      background: linear-gradient(90deg, rgba(66, 8, 27, .72), rgba(7, 4, 7, .68) 70%);
+      clip-path: polygon(0 0, calc(100% - 23px) 0, 100% 23px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
+      box-shadow: inset 0 0 40px rgba(255, 28, 54, .035), 0 18px 70px rgba(0,0,0,.2);
+      overflow: hidden;
+    }
+
+    .topbar::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(110deg, transparent 0 38%, rgba(255,255,255,.08) 44%, transparent 51%);
+      transform: translateX(-120%);
+      animation: topbarSweep 8s ease-in-out infinite;
+    }
+
+    .page-heading { min-width: 0; }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 3px;
+      color: var(--red);
+      font: 11px/1 "Share Tech Mono", monospace;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 28px;
+      height: 1px;
+      background: var(--red);
+      box-shadow: 0 0 9px var(--red);
+    }
+
+    .page-title {
+      margin: 0;
+      color: #f2f3f5;
+      font: 600 clamp(28px, 3.4vw, 49px)/.92 "Teko", sans-serif;
+      letter-spacing: .075em;
+      text-transform: uppercase;
+      text-shadow: 1px 0 rgba(255, 28, 54, .35), -1px 0 rgba(110, 184, 255, .14);
+      animation: textSignal 6s steps(1) infinite;
+    }
+
+    .status-bank {
+      display: grid;
+      grid-template-columns: repeat(3, auto);
+      gap: 8px;
+      align-items: center;
+    }
+
+    .status-tag,
+    .section-tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 25px;
+      width: fit-content;
+      padding: 4px 9px;
+      border: 1px solid currentColor;
+      font: 10px/1 "Share Tech Mono", monospace;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      clip-path: polygon(0 0, calc(100% - 7px) 0, 100% 7px, 100% 100%, 5px 100%, 0 calc(100% - 5px));
+      box-shadow: inset 0 0 12px rgba(255,255,255,.025);
+      animation: tagFlicker 7s steps(1) infinite;
+    }
+
+    .tag-red { color: #ff4054; background: rgba(255, 28, 54, .08); }
+    .tag-green { color: var(--green); background: rgba(118, 255, 182, .055); }
+    .tag-yellow { color: var(--yellow); background: rgba(255, 216, 107, .055); }
+
+    .mobile-trigger {
+      display: none;
+      position: relative;
+      z-index: 140;
+      width: 46px;
+      height: 42px;
+      padding: 0;
+      color: #fff;
+      border: 1px solid var(--line-red);
+      background: rgba(30, 5, 13, .88);
+      clip-path: polygon(0 0, calc(100% - 9px) 0, 100% 9px, 100% 100%, 7px 100%, 0 calc(100% - 7px));
+      cursor: pointer;
+    }
+
+    .mobile-trigger span,
+    .mobile-trigger::before,
+    .mobile-trigger::after {
+      content: "";
+      position: absolute;
+      left: 11px;
+      width: 23px;
+      height: 2px;
+      background: currentColor;
+      transition: transform .35s ease, top .35s ease, opacity .25s ease;
+    }
+
+    .mobile-trigger span { top: 20px; }
+    .mobile-trigger::before { top: 13px; }
+    .mobile-trigger::after { top: 27px; }
+
+    .mobile-trigger.is-open span { opacity: 0; }
+    .mobile-trigger.is-open::before { top: 20px; transform: rotate(45deg); }
+    .mobile-trigger.is-open::after { top: 20px; transform: rotate(-45deg); }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.58fr) minmax(330px, .82fr);
+      gap: clamp(16px, 1.8vw, 28px);
+      align-items: stretch;
+    }
+
+    .archive-panel {
+      position: relative;
+      min-width: 0;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: linear-gradient(145deg, rgba(37, 7, 18, .68), rgba(6, 4, 7, .91) 38%, rgba(8, 5, 8, .95));
+      box-shadow:
+        inset 0 0 42px rgba(255, 28, 54, .032),
+        0 24px 90px rgba(0,0,0,.34);
+      clip-path: polygon(0 0, calc(100% - 28px) 0, 100% 28px, 100% 100%, 18px 100%, 0 calc(100% - 18px));
+      isolation: isolate;
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 1s ease, transform 1s var(--ease-cinematic), border-color .35s ease;
+    }
+
+    .archive-panel.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .archive-panel:hover { border-color: rgba(255, 28, 54, .46); }
+
+    .archive-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 5;
+      pointer-events: none;
+      opacity: .18;
+      background: repeating-linear-gradient(180deg, transparent 0 7px, rgba(255,255,255,.025) 8px);
+    }
+
+    .archive-panel::after {
+      content: "";
+      position: absolute;
+      z-index: 8;
+      top: 0;
+      left: 0;
+      width: 38%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--red), transparent);
+      box-shadow: 0 0 18px var(--red);
+      animation: panelTrace 6.6s ease-in-out infinite;
+    }
+
+    .manifesto-panel {
+      display: grid;
+      grid-template-rows: minmax(255px, 38vh) auto;
+      min-height: min(760px, calc(100vh - 145px));
+    }
+
+    .credits-panel {
+      display: grid;
+      grid-template-rows: minmax(225px, 31vh) auto;
+      min-height: min(760px, calc(100vh - 145px));
+    }
+
+    .media-console {
+      position: relative;
+      min-height: 0;
+      overflow: hidden;
+      background: #080306;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .media-console::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 6;
+      pointer-events: none;
+      background:
+        linear-gradient(180deg, rgba(5,2,4,.03), rgba(20, 2, 10, .42)),
+        radial-gradient(circle at 70% 35%, transparent, rgba(2,0,2,.55) 88%);
+    }
+
+    .media-console::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 7;
+      pointer-events: none;
+      opacity: .38;
+      background:
+        repeating-linear-gradient(180deg, transparent 0 3px, rgba(255,255,255,.07) 4px),
+        linear-gradient(90deg, rgba(115, 0, 28, .22), transparent 22%, transparent 78%, rgba(255, 28, 54, .18));
+      mix-blend-mode: screen;
+      animation: mediaScan 5.8s linear infinite;
+    }
+
+    .media-slide {
+      position: absolute;
+      inset: -2%;
+      width: 104%;
+      height: 104%;
+      object-fit: cover;
+      object-position: center;
+      opacity: 0;
+      filter: grayscale(.65) sepia(.32) saturate(2.4) hue-rotate(322deg) contrast(1.18) brightness(.58);
+      transform: scale(1.08);
+      transition: opacity 1.4s ease, transform 8s linear, filter .7s ease;
+    }
+
+    .media-slide.is-active {
+      opacity: 1;
+      transform: scale(1.015);
+    }
+
+    .archive-panel:hover .media-slide.is-active {
+      filter: grayscale(.42) sepia(.26) saturate(2.8) hue-rotate(322deg) contrast(1.22) brightness(.67);
+    }
+
+    .media-grid {
+      position: absolute;
+      inset: 0;
+      z-index: 9;
+      pointer-events: none;
+      background:
+        linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px);
+      background-size: 36px 36px;
+      mask-image: linear-gradient(90deg, rgba(0,0,0,.8), transparent 72%);
+      opacity: .42;
+    }
+
+    .media-hud {
+      position: absolute;
+      inset: 15px 16px auto;
+      z-index: 12;
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: flex-start;
+      pointer-events: none;
+    }
+
+    .media-code,
+    .media-counter {
+      color: rgba(255,255,255,.84);
+      font: 10px/1.25 "Share Tech Mono", monospace;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      text-shadow: 0 0 10px rgba(255,28,54,.7);
+    }
+
+    .media-counter { color: var(--red); }
+
+    .media-axis {
+      position: absolute;
+      right: 18px;
+      bottom: 17px;
+      z-index: 12;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      color: rgba(255,255,255,.68);
+      font: 9px/1 "Share Tech Mono", monospace;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+
+    .media-axis i {
+      display: block;
+      width: 42px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--red));
+      box-shadow: 0 0 9px var(--red);
+      animation: axisPulse 2.2s ease-in-out infinite;
+    }
+
+    .panel-copy {
+      position: relative;
+      z-index: 10;
+      padding: clamp(22px, 2.4vw, 36px);
+    }
+
+    .panel-kicker {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 13px;
+    }
+
+    .panel-title {
+      position: relative;
+      max-width: 850px;
+      margin: 0 0 18px;
+      padding-bottom: 14px;
+      color: #f0f1f4;
+      font: 600 clamp(28px, 3.2vw, 47px)/.94 "Teko", sans-serif;
+      letter-spacing: .055em;
+      text-transform: uppercase;
+      text-shadow: 1px 0 rgba(255,28,54,.38), -1px 0 rgba(119, 204, 255, .13);
+    }
+
+    .panel-title::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: min(220px, 52%);
+      height: 2px;
+      background: linear-gradient(90deg, var(--red), transparent);
+      box-shadow: 0 0 12px rgba(255,28,54,.7);
+    }
+
+    .panel-text {
+      margin: 0;
+      color: rgba(224, 227, 232, .79);
+      font-size: clamp(13px, .95vw, 15px);
+      line-height: 1.78;
+      letter-spacing: .018em;
+      text-align: justify;
+      text-justify: inter-word;
+      hyphens: none;
+      text-shadow: .45px 0 rgba(255,28,54,.22), -.45px 0 rgba(85, 183, 255, .11);
+      animation: copyFlicker 8s steps(1) infinite;
+    }
+
+    .panel-text + .panel-text { margin-top: 14px; }
+
+    .panel-text strong {
+      color: #fff;
+      font-weight: 600;
+    }
+
+    .signature-line {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      margin-top: 21px;
+      color: var(--silver-dim);
+      font: 10px/1.4 "Share Tech Mono", monospace;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .signature-line::before {
+      content: "";
+      width: 30px;
+      height: 1px;
+      background: var(--red);
+      box-shadow: 0 0 9px var(--red);
+    }
+
+    .credits-visual {
+      display: grid;
+      grid-template-columns: 1.22fr .78fr;
+      gap: 2px;
+      background: rgba(255,255,255,.08);
+    }
+
+    .credits-visual .visual-cell {
+      position: relative;
+      min-width: 0;
+      overflow: hidden;
+      background: #060305;
+    }
+
+    .credits-visual .visual-cell:last-child {
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+      gap: 2px;
+    }
+
+    .credits-visual img {
+      width: 100%;
+      height: 100%;
+      min-height: 0;
+      object-fit: cover;
+      display: block;
+      filter: grayscale(.62) sepia(.28) saturate(2.5) hue-rotate(322deg) contrast(1.15) brightness(.54);
+      transform: scale(1.05);
+      transition: transform 1.2s var(--ease-cinematic), filter .6s ease;
+    }
+
+    .credits-panel:hover .credits-visual img {
+      transform: scale(1.015);
+      filter: grayscale(.43) sepia(.24) saturate(2.8) hue-rotate(322deg) contrast(1.19) brightness(.63);
+    }
+
+    .credits-visual::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 5;
+      pointer-events: none;
+      background:
+        repeating-linear-gradient(180deg, transparent 0 3px, rgba(255,255,255,.07) 4px),
+        linear-gradient(180deg, transparent 30%, rgba(30, 0, 10, .48));
+      mix-blend-mode: screen;
+      opacity: .44;
+    }
+
+    .credit-block {
+      margin-top: 17px;
+      padding: 14px 15px;
+      border-left: 2px solid var(--red);
+      background: linear-gradient(90deg, rgba(255,28,54,.07), transparent);
+    }
+
+    .credit-label {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--yellow);
+      font: 10px/1.2 "Share Tech Mono", monospace;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+
+    .credit-names {
+      margin: 0;
+      color: rgba(255,255,255,.8);
+      font-size: 12px;
+      line-height: 1.7;
+      letter-spacing: .025em;
+      text-align: justify;
+    }
+
+    .bottom-readout {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 16px;
+      align-items: center;
+      margin-top: 18px;
+      min-height: 39px;
+      padding: 8px 13px;
+      color: rgba(255,255,255,.42);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      font: 9px/1.4 "Share Tech Mono", monospace;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      overflow: hidden;
+    }
+
+    .data-stream {
+      white-space: nowrap;
+      animation: streamPulse 4.4s ease-in-out infinite;
+    }
+
+    .clock { color: var(--green); }
+
+    .overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 90;
+      pointer-events: none;
+      opacity: 0;
+      background: rgba(0,0,0,.68);
+      backdrop-filter: blur(3px);
+      transition: opacity .35s ease;
+    }
+
+    .overlay.is-visible { opacity: 1; pointer-events: auto; }
+
+    @keyframes gridDrift {
+      from { background-position: 0 0, 0 0; }
+      to { background-position: 0 92px, 92px 0; }
+    }
+
+    @keyframes scanShift {
+      0% { transform: translateY(-5px); }
+      100% { transform: translateY(5px); }
+    }
+
+    @keyframes noiseMove {
+      0% { transform: translate(0,0); }
+      25% { transform: translate(-1.5%,1%); }
+      50% { transform: translate(1%,-1.2%); }
+      75% { transform: translate(.6%,1.4%); }
+      100% { transform: translate(0,0); }
+    }
+
+    @keyframes beamPulse {
+      from { opacity: .12; transform: rotate(10deg) translateX(-4%); }
+      to { opacity: .3; transform: rotate(15deg) translateX(7%); }
+    }
+
+    @keyframes sidebarData {
+      from { background-position: 0 0, 0 0; }
+      to { background-position: 0 0, 0 160px; }
+    }
+
+    @keyframes sidebarScanner {
+      0%, 100% { transform: translateY(-110%); }
+      50% { transform: translateY(300%); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: .42; transform: scale(.82); }
+      50% { opacity: 1; transform: scale(1.08); }
+    }
+
+    @keyframes logoSignal {
+      0%, 94%, 100% { transform: translateX(0); opacity: 1; }
+      95% { transform: translateX(2px); opacity: .72; }
+      96% { transform: translateX(-2px); opacity: .9; }
+      97% { transform: translateX(1px); }
+    }
+
+    @keyframes topbarSweep {
+      0%, 34% { transform: translateX(-120%); }
+      55%, 100% { transform: translateX(140%); }
+    }
+
+    @keyframes textSignal {
+      0%, 91%, 100% { transform: translateX(0); filter: none; }
+      92% { transform: translateX(1px); filter: blur(.25px); }
+      93% { transform: translateX(-1px); }
+    }
+
+    @keyframes tagFlicker {
+      0%, 89%, 92%, 100% { opacity: 1; }
+      90% { opacity: .62; }
+      91% { opacity: .9; }
+    }
+
+    @keyframes panelTrace {
+      0%, 100% { width: 24%; opacity: .62; }
+      50% { width: 68%; opacity: 1; }
+    }
+
+    @keyframes mediaScan {
+      from { background-position: 0 0, 0 0; }
+      to { background-position: 0 8px, 0 0; }
+    }
+
+    @keyframes axisPulse {
+      0%, 100% { opacity: .34; transform: scaleX(.55); transform-origin: right; }
+      50% { opacity: 1; transform: scaleX(1); transform-origin: right; }
+    }
+
+    @keyframes copyFlicker {
+      0%, 96%, 100% { opacity: 1; }
+      97% { opacity: .86; }
+      98% { opacity: .97; }
+    }
+
+    @keyframes streamPulse {
+      0%, 100% { opacity: .35; }
+      50% { opacity: .72; }
+    }
+
+    @media (max-width: 1180px) {
+      :root { --sidebar-width: 218px; }
+      .content-grid { grid-template-columns: minmax(0, 1.35fr) minmax(300px, .9fr); }
+      .status-bank .status-tag:first-child { display: none; }
+      .nav-link { font-size: 12px; }
+      .panel-copy { padding: 24px; }
+    }
+
+    @media (max-width: 960px) {
+      .content-grid { grid-template-columns: 1fr; }
+      .manifesto-panel,
+      .credits-panel { min-height: auto; }
+      .manifesto-panel { grid-template-rows: minmax(270px, 42vw) auto; }
+      .credits-panel { grid-template-rows: minmax(250px, 36vw) auto; }
+    }
+
+    @media (max-width: 760px) {
+      :root { --sidebar-width: min(84vw, 310px); }
+
+      .app-shell { display: block; }
+
+      .sidebar {
+        transform: translateX(-104%);
+        transition: transform .48s var(--ease-cinematic);
+      }
+
+      .sidebar.is-open { transform: translateX(0); }
+
+      .main {
+        min-height: 100vh;
+        padding: 12px;
+      }
+
+      .topbar {
+        grid-template-columns: auto minmax(0, 1fr);
+        min-height: 72px;
+        padding: 10px 14px;
+      }
+
+      .mobile-trigger { display: block; }
+      .status-bank { display: none; }
+      .page-title { font-size: clamp(25px, 8vw, 38px); }
+      .eyebrow { font-size: 9px; }
+      .eyebrow::before { width: 16px; }
+      .manifesto-panel { grid-template-rows: minmax(235px, 65vw) auto; }
+      .credits-panel { grid-template-rows: minmax(220px, 58vw) auto; }
+      .panel-copy { padding: 21px 18px 24px; }
+      .panel-title { font-size: clamp(28px, 9vw, 39px); }
+      .panel-text { font-size: 13px; line-height: 1.68; }
+      .bottom-readout { grid-template-columns: 1fr; gap: 4px; }
+      .clock { justify-self: start; }
+      .credits-visual { grid-template-columns: 1fr .86fr; }
+    }
+
+    @media (max-width: 460px) {
+      .topbar { margin-bottom: 12px; }
+      .content-grid { gap: 12px; }
+      .manifesto-panel { grid-template-rows: 215px auto; }
+      .credits-panel { grid-template-rows: 202px auto; }
+      .panel-copy { padding: 19px 15px 22px; }
+      .panel-title { margin-bottom: 15px; }
+      .panel-text { font-size: 12.5px; }
+      .media-hud { inset: 11px 11px auto; }
+      .media-code { max-width: 65%; }
+      .section-tag { font-size: 9px; }
+      .credit-block { padding: 12px; }
+    }
+
+    @media (max-height: 700px) and (min-width: 761px) {
+      .brand { min-height: 135px; }
+      .brand img { max-height: 82px; }
+      .nav-link { min-height: 40px; }
+      .nav-title { margin-top: 13px; }
+      .sidebar-meta { padding-top: 11px; padding-bottom: 13px; }
+      .main { padding-top: 15px; padding-bottom: 15px; }
+      .topbar { min-height: 68px; margin-bottom: 15px; }
+      .manifesto-panel,
+      .credits-panel { min-height: 570px; }
+      .manifesto-panel { grid-template-rows: 240px auto; }
+      .credits-panel { grid-template-rows: 215px auto; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+      }
+
+      .archive-panel { opacity: 1; transform: none; }
+      .media-slide.is-active { transform: scale(1.015); }
+    }
+  </style>
+  <noscript><style>.archive-panel{opacity:1!important;transform:none!important}.mobile-trigger{display:none!important}</style></noscript>
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="ambient-beam" aria-hidden="true"></div>
+  <div class="overlay" id="overlay" aria-hidden="true"></div>
+
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar" aria-label="Navegação principal">
+      <a class="brand" href="https://marvelsaxial.tumblr.com/home" target="_top" aria-label="Marvel's Terra Axial — Início">
+        <img id="siteLogo" src="https://i.imgur.com/5UEkjjS.png" alt="Marvel's Terra Axial">
+        <span class="brand-fallback" id="brandFallback">Marvel's<br>Terra Axial</span>
+        <span class="brand-code">AXIAL.OS // 12</span>
+      </a>
+
+      <p class="nav-title">Diretório de arquivos</p>
+      <nav>
+        <ul class="nav-list">
+          <li><a class="nav-link is-active" href="https://marvelsaxial.tumblr.com/home" target="_top" aria-current="page"><span class="nav-index">01</span><span>Início</span><i class="nav-pulse"></i></a></li>
+          <li><a class="nav-link" href="https://marvelsaxial.tumblr.com/ambientacao" target="_top"><span class="nav-index">02</span><span>Ambientação</span><i class="nav-pulse"></i></a></li>
+          <li><a class="nav-link" href="https://marvelsaxial.tumblr.com/cronologia" target="_top"><span class="nav-index">03</span><span>Cronologia</span><i class="nav-pulse"></i></a></li>
+          <li><a class="nav-link" href="https://marvelsaxial.tumblr.com/faccoes" target="_top"><span class="nav-index">04</span><span>Facções</span><i class="nav-pulse"></i></a></li>
+          <li><a class="nav-link" href="https://marvelsaxial.tumblr.com/pacotes" target="_top"><span class="nav-index">05</span><span>Pacotes</span><i class="nav-pulse"></i></a></li>
+          <li><a class="nav-link" href="https://marvelsaxial.tumblr.com/legados" target="_top"><span class="nav-index">06</span><span>Legados</span><i class="nav-pulse"></i></a></li>
+          <li><a class="nav-link" href="https://marvelsaxial.tumblr.com/extras" target="_top"><span class="nav-index">07</span><span>Extras</span><i class="nav-pulse"></i></a></li>
+        </ul>
+      </nav>
+
+      <div class="sidebar-meta">
+        <strong>Arquivo sincronizado</strong>
+        <span>H.A.M.M.E.R. // acesso comprometido</span><br>
+        <span>Memória não licenciada</span>
+      </div>
+    </aside>
+
+    <main class="main" id="mainContent">
+      <header class="topbar">
+        <button class="mobile-trigger" id="mobileTrigger" type="button" aria-label="Abrir menu" aria-expanded="false"><span></span></button>
+
+        <div class="page-heading">
+          <p class="eyebrow">Arquivo central // transmissão recuperada</p>
+          <h1 class="page-title">Marvel’s Terra Axial</h1>
+        </div>
+
+        <div class="status-bank" aria-label="Status do sistema">
+          <span class="status-tag tag-red">Ano 12</span>
+          <span class="status-tag tag-yellow">Memória instável</span>
+          <span class="status-tag tag-green">Acesso liberado</span>
+        </div>
+      </header>
+
+      <div class="content-grid">
+        <article class="archive-panel manifesto-panel" data-reveal>
+          <div class="media-console" id="mediaConsole" aria-label="Registros visuais da Terra Axial">
+            <img class="media-slide is-active" src="https://i.imgur.com/UGLj28H.png" alt="Registro visual da Terra Axial" data-slide>
+            <img class="media-slide" src="https://i.imgur.com/gknPBZX.png" alt="Segundo registro visual da Terra Axial" data-slide>
+            <img class="media-slide" src="https://i.imgur.com/AnwFBn7.png" alt="Terceiro registro visual da Terra Axial" data-slide>
+            <div class="media-grid" aria-hidden="true"></div>
+            <div class="media-hud" aria-hidden="true">
+              <span class="media-code">FONTE // ARQUIVO DE CRIAÇÃO</span>
+              <span class="media-counter" id="mediaCounter">01 // 03</span>
+            </div>
+            <div class="media-axis" aria-hidden="true"><span>Rastreamento axial</span><i></i></div>
+          </div>
+
+          <div class="panel-copy">
+            <div class="panel-kicker">
+              <span class="section-tag tag-red">Dossiê de origem</span>
+              <span class="section-tag tag-yellow">Projeto em construção contínua</span>
+            </div>
+
+            <h2 class="panel-title">Um universo criado para retirar o conforto dos heróis</h2>
+
+            <p class="panel-text"><strong>Terra Axial</strong> nasceu da vontade de construir um RPG da Marvel que não dependesse das mesmas zonas seguras, dos mesmos institutos ou da repetição de conflitos já conhecidos. O projeto começou a ser desenvolvido em <strong>abril de 2026</strong>, primeiro como uma pergunta e depois como um mundo inteiro: <strong>quem são esses heróis se tirarmos tudo o que os torna confortáveis e estabelecidos?</strong> A partir dessa provocação, cada lugar, instituição, personagem e memória foi reconstruído para existir dentro de uma realidade brutal, política e instável, onde poder é risco, esperança exige estratégia e sobreviver nunca significa permanecer intacto.</p>
+
+            <p class="panel-text">A criação utiliza como referências conceituais sagas como <strong>Secret Wars</strong> e seu Mundo de Batalha, <strong>Dark Reign</strong>, <strong>House of M</strong>, <strong>Age of Apocalypse</strong>, <strong>Civil War</strong>, <strong>Secret Empire</strong> e <strong>Infinity</strong>. Essas histórias não são reproduzidas: servem como matéria-prima para uma releitura própria, costurada por novas relações de poder, geografias inéditas, governos deformados, religiões de controle, memórias censuradas e versões axiais de personagens canônicos. O resultado é um universo que reconhece a herança dos quadrinhos, mas se recusa a depender dela para existir.</p>
+
+            <p class="panel-text">Quem atravessar este arquivo encontrará uma experiência construída para jogadores curiosos, leitores atentos e personagens que precisam conquistar espaço dentro de uma história maior do que eles. Há política, sobrevivência, horror cósmico, guerra ideológica, alianças frágeis, legados em disputa e uma juventude obrigada a herdar as ruínas deixadas por seus antecessores. A Terra Axial não promete segurança. Ela promete consequência, participação e a possibilidade de transformar um mundo que foi projetado para esquecer.</p>
+
+            <div class="signature-line">Documento fundador // versão pública recuperada</div>
+          </div>
+        </article>
+
+        <article class="archive-panel credits-panel" data-reveal>
+          <div class="media-console credits-visual" aria-label="Registros visuais dos colaboradores">
+            <div class="visual-cell"><img src="https://i.imgur.com/gknPBZX.png" alt="Registro visual axial em destaque"></div>
+            <div class="visual-cell">
+              <img src="https://i.imgur.com/UGLj28H.png" alt="Registro complementar da Terra Axial">
+              <img src="https://i.imgur.com/AnwFBn7.png" alt="Registro complementar da Terra Axial">
+            </div>
+            <div class="media-hud" aria-hidden="true">
+              <span class="media-code">NÓ // CONTRIBUIÇÕES</span>
+              <span class="media-counter">SINAL 09</span>
+            </div>
+          </div>
+
+          <div class="panel-copy">
+            <div class="panel-kicker">
+              <span class="section-tag tag-green">Créditos autorizados</span>
+              <span class="section-tag tag-yellow">Arquivo preservado</span>
+            </div>
+
+            <h2 class="panel-title">Agradecimentos</h2>
+
+            <p class="panel-text">Este projeto só pôde assumir sua forma porque nasceu sobre décadas de imaginação. Nosso primeiro agradecimento é à <strong>Marvel Comics</strong>, aos seus autores, artistas e equipes criativas, responsáveis pelo material original que tornou possível revisitar esses personagens, tensionar seus símbolos e imaginar outras maneiras de contar suas histórias. Terra Axial existe como homenagem crítica a esse legado e como espaço de experimentação criado por fãs.</p>
+
+            <div class="credit-block">
+              <span class="credit-label">Apoio e processo criativo</span>
+              <p class="credit-names">Edu, Guga, Nani, Bia, Chel, Teteu, Rique, Vivi e Krol — pela escuta, pelas ideias, pelas leituras, pelo incentivo e por ajudarem a transformar uma hipótese de universo em uma construção coletiva capaz de continuar crescendo.</p>
+            </div>
+
+            <div class="credit-block">
+              <span class="credit-label">Construções e espaços</span>
+              <p class="credit-names">Mendler, Dandere e Pearl — pelo auxílio na criação de quartos, ambientes e estruturas que dão forma física à experiência do RPG e fazem com que a Terra Axial possa ser atravessada, ocupada e vivida pelos jogadores.</p>
+            </div>
+
+            <p class="panel-text">A todos que acompanharam o processo desde abril, ofereceram tempo, crítica, presença e confiança: cada contribuição permanece registrada nas camadas deste arquivo. Nenhum mundo é erguido por uma única pessoa. A Terra Axial é o resultado de muitas mãos mantendo a memória acesa.</p>
+
+            <div class="signature-line">Registro de colaboração // acesso público</div>
+          </div>
+        </article>
+      </div>
+
+      <footer class="bottom-readout" aria-label="Informações técnicas do arquivo">
+        <span class="data-stream" id="dataStream">MEM // 0012 &nbsp;|&nbsp; EIXO ESTÁVEL &nbsp;|&nbsp; ORIGEM DOS DADOS: NÓ INTERNO ███████ &nbsp;|&nbsp; ACESSO NÃO AUTORIZADO</span>
+        <span class="clock" id="clock">--:--:-- // BRT</span>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    (() => {
+      'use strict';
+
+      const sidebar = document.getElementById('sidebar');
+      const trigger = document.getElementById('mobileTrigger');
+      const overlay = document.getElementById('overlay');
+      const logo = document.getElementById('siteLogo');
+      const fallback = document.getElementById('brandFallback');
+      const clock = document.getElementById('clock');
+      const slides = [...document.querySelectorAll('[data-slide]')];
+      const mediaCounter = document.getElementById('mediaCounter');
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      let activeSlide = 0;
+      let slideTimer = null;
+
+      const setMenu = (open) => {
+        sidebar.classList.toggle('is-open', open);
+        trigger.classList.toggle('is-open', open);
+        overlay.classList.toggle('is-visible', open);
+        trigger.setAttribute('aria-expanded', String(open));
+        trigger.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+        document.body.style.overflow = open ? 'hidden' : '';
+      };
+
+      trigger.addEventListener('click', () => setMenu(!sidebar.classList.contains('is-open')));
+      overlay.addEventListener('click', () => setMenu(false));
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') setMenu(false);
+      });
+
+      sidebar.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => setMenu(false));
+      });
+
+      logo.addEventListener('error', () => {
+        logo.style.display = 'none';
+        fallback.style.display = 'block';
+      });
+
+      const updateClock = () => {
+        const value = new Intl.DateTimeFormat('pt-BR', {
+          timeZone: 'America/Sao_Paulo',
+          hour: '2-digit',
+          minute: '2-digit',
+          second: '2-digit',
+          hour12: false
+        }).format(new Date());
+        clock.textContent = `${value} // BRT`;
+      };
+
+      updateClock();
+      setInterval(updateClock, 1000);
+
+      const showSlide = (index) => {
+        slides.forEach((slide, slideIndex) => slide.classList.toggle('is-active', slideIndex === index));
+        mediaCounter.textContent = `${String(index + 1).padStart(2, '0')} // ${String(slides.length).padStart(2, '0')}`;
+      };
+
+      if (slides.length > 1 && !reducedMotion) {
+        slideTimer = setInterval(() => {
+          activeSlide = (activeSlide + 1) % slides.length;
+          showSlide(activeSlide);
+        }, 5800);
+      }
+
+      const revealTargets = document.querySelectorAll('[data-reveal]');
+      if ('IntersectionObserver' in window && !reducedMotion) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: .12 });
+
+        revealTargets.forEach((target, index) => {
+          target.style.transitionDelay = `${index * 160}ms`;
+          observer.observe(target);
+        });
+      } else {
+        revealTargets.forEach((target) => target.classList.add('is-visible'));
+      }
+
+      if (!reducedMotion && window.matchMedia('(pointer: fine)').matches) {
+        const panels = document.querySelectorAll('.archive-panel');
+        panels.forEach((panel) => {
+          panel.addEventListener('pointermove', (event) => {
+            const rect = panel.getBoundingClientRect();
+            const x = (event.clientX - rect.left) / rect.width - .5;
+            const y = (event.clientY - rect.top) / rect.height - .5;
+            const image = panel.querySelector('.media-slide.is-active, .credits-visual img');
+            if (image) image.style.transform = `scale(1.035) translate(${x * -7}px, ${y * -6}px)`;
+          });
+
+          panel.addEventListener('pointerleave', () => {
+            panel.querySelectorAll('.media-slide, .credits-visual img').forEach((image) => image.style.transform = '');
+          });
+        });
+      }
+
+      window.addEventListener('beforeunload', () => {
+        if (slideTimer) clearInterval(slideTimer);
+      });
+    })();
+  </script>
+</body>
+</html>
