@@ -1,19 +1,19 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#080307">
-  <meta name="color-scheme" content="dark">
-  <meta name="description" content="Página inicial oficial de Marvel's Terra Axial — arquivo de ambientação, cronologia, facções, pacotes e legados.">
-  <title>Marvel’s Axial — Arquivo Central</title>
-  <link rel="icon" type="image/png" href="https://i.imgur.com/yiuD6Ad.png">
-  <link rel="preconnect" href="https://i.imgur.com" crossorigin>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@400;500;600;700;800&family=Share+Tech+Mono&family=Teko:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<meta content="#080307" name="theme-color"/>
+<meta content="dark" name="color-scheme"/>
+<meta content="Página inicial oficial de Marvel's Terra Axial — arquivo de ambientação, cronologia, facções, pacotes e legados." name="description"/>
+<title>Marvel’s Terra Axial — Arquivo Central</title>
+<link href="https://i.imgur.com/yiuD6Ad.png" rel="icon" type="image/png"/>
+<link crossorigin="" href="https://i.imgur.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@400;500;600;700;800&amp;family=Share+Tech+Mono&amp;family=Teko:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
     :root {
       --black: #030204;
       --black-soft: #0a0508;
@@ -1008,137 +1008,152 @@
       .media-slide.is-active { transform: scale(1.015); }
     }
   </style>
-  <noscript><style>.archive-panel{opacity:1!important;transform:none!important}.mobile-trigger{display:none!important}</style></noscript>
-</head>
-<body>
-  <div class="noise" aria-hidden="true"></div>
-  <div class="ambient-beam" aria-hidden="true"></div>
-  <div class="overlay" id="overlay" aria-hidden="true"></div>
-
-  <div class="app-shell">
-    <aside class="sidebar" id="sidebar" aria-label="Navegação principal">
-      <a class="brand" href="https://marvelsaxial.tumblr.com/home" target="_top" aria-label="Marvel's Terra Axial — Início">
-        <img id="siteLogo" src="https://i.imgur.com/5UEkjjS.png" alt="Marvel's Terra Axial">
-        <span class="brand-fallback" id="brandFallback">Marvel's<br>Terra Axial</span>
-        <span class="brand-code">AXIAL.OS // 12</span>
-      </a>
-
-      <p class="nav-title">Diretório de arquivos</p>
-      <nav>
-        <ul class="nav-list">
-          <li><a class="nav-link is-active" href="https://marvelsaxial.tumblr.com/home" target="_top" aria-current="page"><span class="nav-index">01</span><span>Início</span><i class="nav-pulse"></i></a></li>
-          <li><a class="nav-link" href="https://marvelsaxial.tumblr.com/ambientacao" target="_top"><span class="nav-index">02</span><span>Ambientação</span><i class="nav-pulse"></i></a></li>
-          <li><a class="nav-link" href="https://marvelsaxial.tumblr.com/cronologia" target="_top"><span class="nav-index">03</span><span>Cronologia</span><i class="nav-pulse"></i></a></li>
-          <li><a class="nav-link" href="https://marvelsaxial.tumblr.com/faccoes" target="_top"><span class="nav-index">04</span><span>Facções</span><i class="nav-pulse"></i></a></li>
-          <li><a class="nav-link" href="https://marvelsaxial.tumblr.com/pacotes" target="_top"><span class="nav-index">05</span><span>Pacotes</span><i class="nav-pulse"></i></a></li>
-          <li><a class="nav-link" href="https://marvelsaxial.tumblr.com/legados" target="_top"><span class="nav-index">06</span><span>Legados</span><i class="nav-pulse"></i></a></li>
-          <li><a class="nav-link" href="https://marvelsaxial.tumblr.com/extras" target="_top"><span class="nav-index">07</span><span>Extras</span><i class="nav-pulse"></i></a></li>
-        </ul>
-      </nav>
-
-      <div class="sidebar-meta">
-        <strong>Arquivo sincronizado</strong>
-        <span>H.A.M.M.E.R. // acesso comprometido</span><br>
-        <span>Memória não licenciada</span>
-      </div>
-    </aside>
-
-    <main class="main" id="mainContent">
-      <header class="topbar">
-        <button class="mobile-trigger" id="mobileTrigger" type="button" aria-label="Abrir menu" aria-expanded="false"><span></span></button>
-
-        <div class="page-heading">
-          <p class="eyebrow">Arquivo central // transmissão recuperada</p>
-          <h1 class="page-title">Marvel’s Terra Axial</h1>
-        </div>
-
-        <div class="status-bank" aria-label="Status do sistema">
-          <span class="status-tag tag-red">Ano 12</span>
-          <span class="status-tag tag-yellow">Memória instável</span>
-          <span class="status-tag tag-green">Acesso liberado</span>
-        </div>
-      </header>
-
-      <div class="content-grid">
-        <article class="archive-panel manifesto-panel" data-reveal>
-          <div class="media-console" id="mediaConsole" aria-label="Registros visuais da Terra Axial">
-            <img class="media-slide is-active" src="https://i.imgur.com/UGLj28H.png" alt="Registro visual da Terra Axial" data-slide>
-            <img class="media-slide" src="https://i.imgur.com/gknPBZX.png" alt="Segundo registro visual da Terra Axial" data-slide>
-            <img class="media-slide" src="https://i.imgur.com/AnwFBn7.png" alt="Terceiro registro visual da Terra Axial" data-slide>
-            <div class="media-grid" aria-hidden="true"></div>
-            <div class="media-hud" aria-hidden="true">
-              <span class="media-code">FONTE // ARQUIVO DE CRIAÇÃO</span>
-              <span class="media-counter" id="mediaCounter">01 // 03</span>
-            </div>
-            <div class="media-axis" aria-hidden="true"><span>Rastreamento axial</span><i></i></div>
-          </div>
-
-          <div class="panel-copy">
-            <div class="panel-kicker">
-              <span class="section-tag tag-red">Dossiê de origem</span>
-              <span class="section-tag tag-yellow">Projeto em construção contínua</span>
-            </div>
-
-            <h2 class="panel-title">Um universo criado para retirar o conforto dos heróis</h2>
-
-            <p class="panel-text"><strong>Terra Axial</strong> nasceu da vontade de construir um RPG da Marvel que não dependesse das mesmas zonas seguras, dos mesmos institutos ou da repetição de conflitos já conhecidos. O projeto começou a ser desenvolvido em <strong>abril de 2026</strong>, primeiro como uma pergunta e depois como um mundo inteiro: <strong>quem são esses heróis se tirarmos tudo o que os torna confortáveis e estabelecidos?</strong> A partir dessa provocação, cada lugar, instituição, personagem e memória foi reconstruído para existir dentro de uma realidade brutal, política e instável, onde poder é risco, esperança exige estratégia e sobreviver nunca significa permanecer intacto.</p>
-
-            <p class="panel-text">A criação utiliza como referências conceituais sagas como <strong>Secret Wars</strong> e seu Mundo de Batalha, <strong>Dark Reign</strong>, <strong>House of M</strong>, <strong>Age of Apocalypse</strong>, <strong>Civil War</strong>, <strong>Secret Empire</strong> e <strong>Infinity</strong>. Essas histórias não são reproduzidas: servem como matéria-prima para uma releitura própria, costurada por novas relações de poder, geografias inéditas, governos deformados, religiões de controle, memórias censuradas e versões axiais de personagens canônicos. O resultado é um universo que reconhece a herança dos quadrinhos, mas se recusa a depender dela para existir.</p>
-
-            <p class="panel-text">Quem atravessar este arquivo encontrará uma experiência construída para jogadores curiosos, leitores atentos e personagens que precisam conquistar espaço dentro de uma história maior do que eles. Há política, sobrevivência, horror cósmico, guerra ideológica, alianças frágeis, legados em disputa e uma juventude obrigada a herdar as ruínas deixadas por seus antecessores. A Terra Axial não promete segurança. Ela promete consequência, participação e a possibilidade de transformar um mundo que foi projetado para esquecer.</p>
-
-            <div class="signature-line">Documento fundador // versão pública recuperada</div>
-          </div>
-        </article>
-
-        <article class="archive-panel credits-panel" data-reveal>
-          <div class="media-console credits-visual" aria-label="Registros visuais dos colaboradores">
-            <div class="visual-cell"><img src="https://i.imgur.com/gknPBZX.png" alt="Registro visual axial em destaque"></div>
-            <div class="visual-cell">
-              <img src="https://i.imgur.com/UGLj28H.png" alt="Registro complementar da Terra Axial">
-              <img src="https://i.imgur.com/AnwFBn7.png" alt="Registro complementar da Terra Axial">
-            </div>
-            <div class="media-hud" aria-hidden="true">
-              <span class="media-code">NÓ // CONTRIBUIÇÕES</span>
-              <span class="media-counter">SINAL 09</span>
-            </div>
-          </div>
-
-          <div class="panel-copy">
-            <div class="panel-kicker">
-              <span class="section-tag tag-green">Créditos autorizados</span>
-              <span class="section-tag tag-yellow">Arquivo preservado</span>
-            </div>
-
-            <h2 class="panel-title">Agradecimentos</h2>
-
-            <p class="panel-text">Este projeto só pôde assumir sua forma porque nasceu sobre décadas de imaginação. Nosso primeiro agradecimento é à <strong>Marvel Comics</strong>, aos seus autores, artistas e equipes criativas, responsáveis pelo material original que tornou possível revisitar esses personagens, tensionar seus símbolos e imaginar outras maneiras de contar suas histórias. Terra Axial existe como homenagem crítica a esse legado e como espaço de experimentação criado por fãs.</p>
-
-            <div class="credit-block">
-              <span class="credit-label">Apoio e processo criativo</span>
-              <p class="credit-names">Edu, Guga, Nani, Bia, Chel, Teteu, Rique, Vivi e Krol — pela escuta, pelas ideias, pelas leituras, pelo incentivo e por ajudarem a transformar uma hipótese de universo em uma construção coletiva capaz de continuar crescendo.</p>
-            </div>
-
-            <div class="credit-block">
-              <span class="credit-label">Construções e espaços</span>
-              <p class="credit-names">Mendler, Dandere e Pearl — pelo auxílio na criação de quartos, ambientes e estruturas que dão forma física à experiência do RPG e fazem com que a Terra Axial possa ser atravessada, ocupada e vivida pelos jogadores.</p>
-            </div>
-
-            <p class="panel-text">A todos que acompanharam o processo desde abril, ofereceram tempo, crítica, presença e confiança: cada contribuição permanece registrada nas camadas deste arquivo. Nenhum mundo é erguido por uma única pessoa. A Terra Axial é o resultado de muitas mãos mantendo a memória acesa.</p>
-
-            <div class="signature-line">Registro de colaboração // acesso público</div>
-          </div>
-        </article>
-      </div>
-
-      <footer class="bottom-readout" aria-label="Informações técnicas do arquivo">
-        <span class="data-stream" id="dataStream">MEM // 0012 &nbsp;|&nbsp; EIXO ESTÁVEL &nbsp;|&nbsp; ORIGEM DOS DADOS: NÓ INTERNO ███████ &nbsp;|&nbsp; ACESSO NÃO AUTORIZADO</span>
-        <span class="clock" id="clock">--:--:-- // BRT</span>
-      </footer>
-    </main>
-  </div>
-
-  <script>
+<noscript><style>.archive-panel{opacity:1!important;transform:none!important}.mobile-trigger{display:none!important}</style></noscript>
+<style id="home-immersive-entry-v2">
+html,body{max-width:100%;overflow-x:hidden}.main{perspective:1600px}.topbar,.home-portal,.content-grid,.bottom-readout{width:min(100%,1280px);margin-left:0;margin-right:0}
+.entry-progress{position:fixed;inset:0 0 auto var(--sidebar-width);z-index:180;height:2px;pointer-events:none;background:rgba(255,255,255,.035)}.entry-progress i{display:block;width:0;height:100%;background:linear-gradient(90deg,var(--red),#ff9eaa,var(--yellow));box-shadow:0 0 16px rgba(255,28,54,.75);transition:width .08s linear}
+.home-portal{--tilt-x:0deg;--tilt-y:0deg;--spot-x:72%;--spot-y:34%;position:relative;display:grid;grid-template-columns:minmax(0,1.18fr) minmax(290px,.82fr);gap:clamp(25px,4vw,62px);align-items:center;min-height:clamp(520px,68vh,720px);margin-bottom:clamp(20px,2.2vw,31px);padding:clamp(34px,5.2vw,76px);overflow:hidden;border:1px solid rgba(255,255,255,.15);background:radial-gradient(circle at var(--spot-x) var(--spot-y),rgba(255,43,72,.15),transparent 28%),linear-gradient(116deg,rgba(41,5,18,.88),rgba(6,3,7,.95) 57%,rgba(3,2,4,.99));clip-path:polygon(0 0,calc(100% - 34px) 0,100% 34px,100% 100%,25px 100%,0 calc(100% - 25px));box-shadow:inset 0 0 100px rgba(255,28,54,.035),0 34px 110px rgba(0,0,0,.42);opacity:0;transform:perspective(1400px) translateY(20px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y));transform-style:preserve-3d;transform-origin:center;transition:opacity 1s ease,transform .9s cubic-bezier(.22,.72,.12,1),border-color .35s ease,box-shadow .35s ease;isolation:isolate;will-change:transform}.home-portal.is-visible{opacity:1;transform:perspective(1400px) translateY(0) rotateX(var(--tilt-x)) rotateY(var(--tilt-y))}.home-portal:hover{border-color:rgba(255,28,54,.48);box-shadow:inset 0 0 120px rgba(255,28,54,.05),0 42px 130px rgba(0,0,0,.48)}
+.home-portal:before{content:"";position:absolute;inset:0;z-index:10;pointer-events:none;opacity:.27;background:repeating-linear-gradient(180deg,transparent 0 4px,rgba(255,255,255,.055) 5px),linear-gradient(90deg,rgba(255,28,54,.18),transparent 25%,transparent 75%,rgba(107,190,255,.08));mix-blend-mode:screen}.home-portal:after{content:"";position:absolute;z-index:12;left:-16%;top:-30%;width:19%;height:160%;pointer-events:none;background:linear-gradient(90deg,transparent,rgba(255,255,255,.075),transparent);transform:skewX(-14deg);animation:portalSweep 10s ease-in-out infinite}
+.portal-backdrop{position:absolute;inset:0;z-index:-3;overflow:hidden;pointer-events:none}.portal-image{--depth-x:0px;--depth-y:0px;position:absolute;inset:-5%;width:110%;height:110%;object-fit:cover;filter:grayscale(.58) sepia(.32) saturate(2.2) hue-rotate(322deg) contrast(1.2) brightness(.38);transform:translate3d(var(--depth-x),var(--depth-y),0) scale(1.06);transition:transform .18s ease-out;will-change:transform}.portal-image-main{opacity:.68;object-position:center 45%}.portal-image-ghost{opacity:.12;mix-blend-mode:screen;filter:grayscale(.8) sepia(.45) saturate(3) hue-rotate(322deg) contrast(1.4) brightness(.48);transform:translate3d(var(--depth-x),var(--depth-y),0) scale(1.18) rotate(-2deg)}.portal-redwash{position:absolute;inset:0;background:radial-gradient(circle at 72% 34%,transparent 0 13%,rgba(88,0,32,.16) 31%,rgba(5,1,5,.63) 72%),linear-gradient(90deg,rgba(8,2,6,.98) 5%,rgba(16,4,11,.83) 44%,rgba(8,2,6,.28) 70%,rgba(3,1,3,.83))}.portal-grid{position:absolute;inset:0;opacity:.3;background:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,28,54,.055) 1px,transparent 1px);background-size:42px 42px;mask-image:linear-gradient(90deg,#000,transparent 90%);animation:portalGrid 18s linear infinite}.portal-horizon{position:absolute;left:0;right:0;bottom:-45%;height:72%;opacity:.32;background:linear-gradient(rgba(255,28,54,.12) 1px,transparent 1px),linear-gradient(90deg,rgba(255,28,54,.12) 1px,transparent 1px);background-size:42px 32px;transform:perspective(520px) rotateX(65deg) scaleX(1.45);transform-origin:center top;mask-image:linear-gradient(#000,transparent 78%)}
+.portal-copy{position:relative;z-index:20;min-width:0;transform:translateZ(52px)}.portal-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:19px}.portal-overline{margin:0 0 7px;color:rgba(255,255,255,.53);font:10px/1.4 "Share Tech Mono",monospace;letter-spacing:.14em;text-transform:uppercase}.home-portal h2{max-width:820px;margin:0 0 17px;color:#f4f4f6;font:600 clamp(48px,6.2vw,92px)/.78 "Teko",sans-serif;letter-spacing:.035em;text-transform:uppercase;text-shadow:2px 0 rgba(255,28,54,.38),-1px 0 rgba(93,194,255,.14),0 16px 48px rgba(0,0,0,.48)}.home-portal h2 span{display:block;color:var(--red);text-shadow:0 0 34px rgba(255,28,54,.25)}.portal-text{max-width:740px;margin:0;color:rgba(230,232,236,.78);font-size:clamp(13px,.98vw,15px);line-height:1.82;text-align:justify;hyphens:none}
+.portal-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:25px}.portal-action{position:relative;display:inline-grid;grid-template-columns:1fr auto;gap:17px;align-items:center;min-height:48px;min-width:205px;padding:8px 13px 8px 15px;color:#fff;text-decoration:none;border:1px solid rgba(255,255,255,.16);background:rgba(4,3,5,.54);clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,7px 100%,0 calc(100% - 7px));font:600 11px/1.3 "Oxanium",sans-serif;letter-spacing:.07em;text-transform:uppercase;transition:transform .28s ease,border-color .28s ease,background .28s ease}.portal-action b{color:var(--red);font:19px/1 "Share Tech Mono",monospace}.portal-action:hover,.portal-action:focus-visible{transform:translateY(-3px) translateZ(8px);border-color:rgba(255,28,54,.55);background:rgba(255,28,54,.08)}.portal-action-primary{border-color:rgba(255,28,54,.48);background:linear-gradient(90deg,rgba(255,28,54,.16),rgba(255,28,54,.035))}
+.portal-readout{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;max-width:760px;margin-top:27px}.portal-readout>div{position:relative;min-width:0;padding:11px 12px;border:1px solid rgba(255,255,255,.1);background:rgba(3,2,4,.42)}.portal-readout>div:after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:linear-gradient(90deg,var(--red),transparent)}.portal-readout small{display:block;color:rgba(255,255,255,.42);font:8px/1.25 "Share Tech Mono",monospace;letter-spacing:.1em;text-transform:uppercase}.portal-readout strong{display:block;margin-top:5px;color:#fff;font:600 clamp(21px,2vw,29px)/.9 "Teko",sans-serif;letter-spacing:.05em;text-transform:uppercase;overflow-wrap:anywhere}
+.portal-core{--depth-x:0px;--depth-y:0px;position:relative;z-index:19;width:min(100%,340px);aspect-ratio:1;justify-self:end;transform:translate3d(var(--depth-x),var(--depth-y),72px);transform-style:preserve-3d;transition:transform .18s ease-out}.core-orbit{position:absolute;inset:0;border:1px solid rgba(255,28,54,.28);border-radius:50%;box-shadow:0 0 40px rgba(255,28,54,.06),inset 0 0 35px rgba(255,28,54,.045);animation:coreSpin 18s linear infinite}.orbit-one:before,.orbit-two:before,.orbit-three:before{content:"";position:absolute;top:-4px;left:50%;width:8px;height:8px;border-radius:50%;background:var(--red);box-shadow:0 0 15px var(--red)}.orbit-two{inset:27px;border-color:rgba(255,216,107,.25);animation-direction:reverse;animation-duration:13s}.orbit-two:before{background:var(--yellow);box-shadow:0 0 15px var(--yellow)}.orbit-three{inset:69px;border-style:dashed;border-color:rgba(118,255,182,.24);animation-duration:9s}.orbit-three:before{background:var(--green);box-shadow:0 0 15px var(--green)}.core-axis{position:absolute;left:50%;top:50%;background:linear-gradient(90deg,transparent,rgba(255,28,54,.58),transparent);transform:translate(-50%,-50%)}.axis-horizontal{width:116%;height:1px}.axis-vertical{width:1px;height:116%;background:linear-gradient(transparent,rgba(255,28,54,.58),transparent)}.core-diamond{position:absolute;inset:100px;display:grid;place-items:center;align-content:center;color:#fff;background:radial-gradient(circle,rgba(255,28,54,.18),transparent 62%),linear-gradient(145deg,rgba(54,6,24,.96),rgba(5,3,6,.96));border:1px solid rgba(255,28,54,.45);clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%);box-shadow:0 0 46px rgba(255,28,54,.12);transform:translateZ(34px) rotate(45deg)}.core-diamond>*{transform:rotate(-45deg)}.core-diamond span{color:var(--red);font:9px/1 "Share Tech Mono",monospace;letter-spacing:.16em}.core-diamond strong{font:600 58px/.76 "Teko",sans-serif}.core-diamond small{color:rgba(255,255,255,.5);font:7px/1 "Share Tech Mono",monospace;letter-spacing:.11em}.core-node{position:absolute;width:7px;height:7px;border-radius:50%;background:#fff;box-shadow:0 0 14px #fff;animation:nodePulse 2.4s ease-in-out infinite}.node-a{left:7%;top:36%;background:var(--red);box-shadow:0 0 14px var(--red)}.node-b{right:12%;top:18%;background:var(--yellow);box-shadow:0 0 14px var(--yellow);animation-delay:.7s}.node-c{right:4%;bottom:27%;background:var(--green);box-shadow:0 0 14px var(--green);animation-delay:1.3s}.portal-caption{position:absolute;z-index:21;left:20px;right:20px;bottom:14px;display:flex;justify-content:space-between;gap:16px;color:rgba(255,255,255,.37);font:8px/1 "Share Tech Mono",monospace;letter-spacing:.12em;text-transform:uppercase}
+.content-grid{display:flex!important;flex-direction:column;align-items:stretch;gap:clamp(20px,2.4vw,32px)}.archive-panel{--tilt-x:0deg;--tilt-y:0deg;display:grid!important;grid-template-columns:minmax(330px,.88fr) minmax(0,1.12fr);grid-template-rows:none!important;width:100%;min-height:0!important;transform:perspective(1400px) translateY(18px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y));transform-style:preserve-3d;transform-origin:center;will-change:transform}.archive-panel.is-visible{transform:perspective(1400px) translateY(0) rotateX(var(--tilt-x)) rotateY(var(--tilt-y))}.archive-panel .media-console,.archive-panel .panel-copy{min-width:0}.archive-panel .media-console{min-height:clamp(370px,40vw,510px);border-bottom:0;border-right:1px solid var(--line);transform:translateZ(18px)}.archive-panel .panel-copy{display:flex;flex-direction:column;justify-content:center;padding:clamp(28px,3.4vw,50px);transform:translateZ(34px)}.credits-panel{grid-template-columns:minmax(0,1.12fr) minmax(330px,.88fr)}.credits-panel .media-console{grid-column:2;grid-row:1;border-right:0;border-left:1px solid var(--line)}.credits-panel .panel-copy{grid-column:1;grid-row:1}
+.media-slide{--depth-x:0px;--depth-y:0px;transform:translate3d(var(--depth-x),var(--depth-y),0) scale(1.08)}.media-slide.is-active{transform:translate3d(var(--depth-x),var(--depth-y),0) scale(1.015)}.credits-visual img{--depth-x:0px;--depth-y:0px;transform:translate3d(var(--depth-x),var(--depth-y),0) scale(1.05)}.archive-panel:hover .media-slide.is-active{transform:translate3d(var(--depth-x),var(--depth-y),0) scale(1.035)}.credits-panel:hover .credits-visual img{transform:translate3d(var(--depth-x),var(--depth-y),0) scale(1.025)}.archive-panel:before{background:radial-gradient(circle at var(--spot-x,50%) var(--spot-y,50%),rgba(255,28,54,.075),transparent 24%),repeating-linear-gradient(180deg,transparent 0 7px,rgba(255,255,255,.025) 8px)}
+@media(max-width:1180px){.home-portal{grid-template-columns:minmax(0,1fr) 290px}.portal-core{width:290px}.core-diamond{inset:84px}}@media(max-width:980px){.home-portal{grid-template-columns:minmax(0,1fr);min-height:auto}.portal-core{display:none}.archive-panel,.credits-panel{grid-template-columns:minmax(280px,.82fr) minmax(0,1.18fr)}}@media(max-width:800px){.entry-progress{left:0}.home-portal{padding:clamp(27px,6vw,42px)}.archive-panel,.credits-panel{grid-template-columns:1fr!important}.archive-panel .media-console,.credits-panel .media-console{grid-column:1;grid-row:1;min-height:clamp(250px,58vw,390px);border-right:0;border-left:0;border-bottom:1px solid var(--line)}.archive-panel .panel-copy,.credits-panel .panel-copy{grid-column:1;grid-row:2}}@media(max-width:560px){.home-portal{padding:26px 18px 42px;clip-path:polygon(0 0,calc(100% - 19px) 0,100% 19px,100% 100%,12px 100%,0 calc(100% - 12px))}.home-portal h2{font-size:48px}.portal-actions{display:grid;grid-template-columns:1fr}.portal-action{width:100%;min-width:0}.portal-readout{grid-template-columns:1fr}.portal-caption span:last-child{display:none}.archive-panel .panel-copy{padding:25px 18px}}@media(prefers-reduced-motion:reduce){.home-portal,.archive-panel{transform:none!important}.home-portal:after,.portal-grid,.core-orbit,.core-node{animation:none!important}}
+@keyframes portalSweep{0%,100%{transform:translateX(0) skewX(-14deg)}50%{transform:translateX(760%) skewX(-14deg)}}@keyframes portalGrid{to{background-position:420px 420px}}@keyframes coreSpin{to{transform:rotate(360deg)}}@keyframes nodePulse{0%,100%{opacity:.35;transform:scale(.7)}50%{opacity:1;transform:scale(1.2)}}
+</style></head>
+<body><div aria-hidden="true" class="entry-progress" id="entryProgress"><i></i></div>
+<div aria-hidden="true" class="noise"></div>
+<div aria-hidden="true" class="ambient-beam"></div>
+<div aria-hidden="true" class="overlay" id="overlay"></div>
+<div class="app-shell">
+<aside aria-label="Navegação principal" class="sidebar" id="sidebar">
+<a aria-label="Marvel's Terra Axial — Início" class="brand" href="https://marvelsaxial.tumblr.com/home" target="_top">
+<img alt="Marvel's Terra Axial" id="siteLogo" src="https://i.imgur.com/5UEkjjS.png"/>
+<span class="brand-fallback" id="brandFallback">Marvel's<br/>Terra Axial</span>
+<span class="brand-code">AXIAL.OS // 12</span>
+</a>
+<p class="nav-title">Diretório de arquivos</p>
+<nav>
+<ul class="nav-list">
+<li><a aria-current="page" class="nav-link is-active" href="https://marvelsaxial.tumblr.com/home" target="_top"><span class="nav-index">01</span><span>Início</span><i class="nav-pulse"></i></a></li>
+<li><a class="nav-link" href="https://marvelsaxial.tumblr.com/ambientacao" target="_top"><span class="nav-index">02</span><span>Ambientação</span><i class="nav-pulse"></i></a></li>
+<li><a class="nav-link" href="https://marvelsaxial.tumblr.com/cronologia" target="_top"><span class="nav-index">03</span><span>Cronologia</span><i class="nav-pulse"></i></a></li>
+<li><a class="nav-link" href="https://marvelsaxial.tumblr.com/faccoes" target="_top"><span class="nav-index">04</span><span>Facções</span><i class="nav-pulse"></i></a></li>
+<li><a class="nav-link" href="https://marvelsaxial.tumblr.com/pacotes" target="_top"><span class="nav-index">05</span><span>Pacotes</span><i class="nav-pulse"></i></a></li>
+<li><a class="nav-link" href="https://marvelsaxial.tumblr.com/legados" target="_top"><span class="nav-index">06</span><span>Legados</span><i class="nav-pulse"></i></a></li>
+<li><a class="nav-link" href="https://marvelsaxial.tumblr.com/extras" target="_top"><span class="nav-index">07</span><span>Extras</span><i class="nav-pulse"></i></a></li>
+</ul>
+</nav>
+<div class="sidebar-meta">
+<strong>Arquivo sincronizado</strong>
+<span>H.A.M.M.E.R. // acesso comprometido</span><br/>
+<span>Memória não licenciada</span>
+</div>
+</aside>
+<main class="main" id="mainContent">
+<header class="topbar">
+<button aria-expanded="false" aria-label="Abrir menu" class="mobile-trigger" id="mobileTrigger" type="button"><span></span></button>
+<div class="page-heading">
+<p class="eyebrow">Arquivo central // transmissão recuperada</p>
+<h1 class="page-title">Marvel’s Terra Axial</h1>
+</div>
+<div aria-label="Status do sistema" class="status-bank">
+<span class="status-tag tag-red">Ano 12</span>
+<span class="status-tag tag-yellow">Memória instável</span>
+<span class="status-tag tag-green">Acesso liberado</span>
+</div>
+</header><section aria-labelledby="portalTitle" class="home-portal is-visible" data-reveal="" data-tilt="" data-tilt-max="4.5" id="homePortalV2">
+<div aria-hidden="true" class="portal-backdrop">
+<img alt="" class="portal-image portal-image-main" data-depth="1.35" src="https://i.imgur.com/UGLj28H.png"/>
+<img alt="" class="portal-image portal-image-ghost" data-depth=".65" src="https://i.imgur.com/AnwFBn7.png"/>
+<div class="portal-redwash"></div><div class="portal-grid"></div><div class="portal-horizon"></div>
+</div>
+<div class="portal-copy">
+<div class="portal-tags"><span class="section-tag tag-red">Transmissão inaugural</span><span class="section-tag tag-yellow">Memória recuperada</span><span class="section-tag tag-green">Entrada autorizada</span></div>
+<p class="portal-overline">Ano 12 // realidade axial // protocolo de recepção</p>
+<h2 id="portalTitle">O mundo foi salvo. <span>O preço foi lembrar errado.</span></h2>
+<p class="portal-text">A Terra Axial é um universo reconstruído sobre ruínas, memórias censuradas e versões de heróis obrigadas a sobreviver sem os lugares que antes lhes davam segurança. Esta página funciona como o primeiro arquivo do sistema: uma entrada para a ambientação, a cronologia, as facções e as capacidades que disputam o futuro da Fornalha.</p>
+<div aria-label="Acessos principais" class="portal-actions">
+<a class="portal-action portal-action-primary" href="https://marvelsaxial.tumblr.com/ambientacao" target="_top"><span>Iniciar ambientação</span><b>↗</b></a>
+<a class="portal-action" href="https://marvelsaxial.tumblr.com/cronologia" target="_top"><span>Acessar cronologia</span><b>↗</b></a>
+</div>
+<div class="portal-readout"><div><small>Regência</small><strong>Thanópolis</strong></div><div><small>Capital insurgente</small><strong>Fornalha</strong></div><div><small>Estado da memória</small><strong>Instável</strong></div></div>
+</div>
+<div aria-hidden="true" class="portal-core" data-depth="1.8">
+<div class="core-orbit orbit-one"></div><div class="core-orbit orbit-two"></div><div class="core-orbit orbit-three"></div>
+<div class="core-axis axis-horizontal"></div><div class="core-axis axis-vertical"></div>
+<div class="core-diamond"><span>AXIAL</span><strong>12</strong><small>MEM // LIVE</small></div>
+<i class="core-node node-a"></i><i class="core-node node-b"></i><i class="core-node node-c"></i>
+</div>
+<div aria-hidden="true" class="portal-caption"><span>ENTRADA // 01</span><span>MOVA O CURSOR SOBRE O ARQUIVO</span></div>
+</section>
+<div class="content-grid home-story-stack">
+<article class="archive-panel manifesto-panel" data-panel-sequence="01" data-reveal="" data-tilt="" data-tilt-max="2.2">
+<div aria-label="Registros visuais da Terra Axial" class="media-console" id="mediaConsole">
+<img alt="Registro visual da Terra Axial" class="media-slide is-active" data-depth=".55" data-slide="" src="https://i.imgur.com/UGLj28H.png"/>
+<img alt="Segundo registro visual da Terra Axial" class="media-slide" data-depth=".55" data-slide="" src="https://i.imgur.com/gknPBZX.png"/>
+<img alt="Terceiro registro visual da Terra Axial" class="media-slide" data-depth=".55" data-slide="" src="https://i.imgur.com/AnwFBn7.png"/>
+<div aria-hidden="true" class="media-grid"></div>
+<div aria-hidden="true" class="media-hud">
+<span class="media-code">FONTE // ARQUIVO DE CRIAÇÃO</span>
+<span class="media-counter" id="mediaCounter">01 // 03</span>
+</div>
+<div aria-hidden="true" class="media-axis"><span>Rastreamento axial</span><i></i></div>
+</div>
+<div class="panel-copy">
+<div class="panel-kicker">
+<span class="section-tag tag-red">Dossiê de origem</span>
+<span class="section-tag tag-yellow">Projeto em construção contínua</span>
+</div>
+<h2 class="panel-title">Um universo criado para retirar o conforto dos heróis</h2>
+<p class="panel-text"><strong>Terra Axial</strong> nasceu da vontade de construir um RPG da Marvel que não dependesse das mesmas zonas seguras, dos mesmos institutos ou da repetição de conflitos já conhecidos. O projeto começou a ser desenvolvido em <strong>abril de 2026</strong>, primeiro como uma pergunta e depois como um mundo inteiro: <strong>quem são esses heróis se tirarmos tudo o que os torna confortáveis e estabelecidos?</strong> A partir dessa provocação, cada lugar, instituição, personagem e memória foi reconstruído para existir dentro de uma realidade brutal, política e instável, onde poder é risco, esperança exige estratégia e sobreviver nunca significa permanecer intacto.</p>
+<p class="panel-text">A criação utiliza como referências conceituais sagas como <strong>Secret Wars</strong> e seu Mundo de Batalha, <strong>Dark Reign</strong>, <strong>House of M</strong>, <strong>Age of Apocalypse</strong>, <strong>Civil War</strong>, <strong>Secret Empire</strong> e <strong>Infinity</strong>. Essas histórias não são reproduzidas: servem como matéria-prima para uma releitura própria, costurada por novas relações de poder, geografias inéditas, governos deformados, religiões de controle, memórias censuradas e versões axiais de personagens canônicos. O resultado é um universo que reconhece a herança dos quadrinhos, mas se recusa a depender dela para existir.</p>
+<p class="panel-text">Quem atravessar este arquivo encontrará uma experiência construída para jogadores curiosos, leitores atentos e personagens que precisam conquistar espaço dentro de uma história maior do que eles. Há política, sobrevivência, horror cósmico, guerra ideológica, alianças frágeis, legados em disputa e uma juventude obrigada a herdar as ruínas deixadas por seus antecessores. A Terra Axial não promete segurança. Ela promete consequência, participação e a possibilidade de transformar um mundo que foi projetado para esquecer.</p>
+<div class="signature-line">Documento fundador // versão pública recuperada</div>
+</div>
+</article>
+<article class="archive-panel credits-panel" data-panel-sequence="02" data-reveal="" data-tilt="" data-tilt-max="2.2">
+<div aria-label="Registros visuais dos colaboradores" class="media-console credits-visual">
+<div class="visual-cell"><img alt="Registro visual axial em destaque" data-depth=".55" src="https://i.imgur.com/gknPBZX.png"/></div>
+<div class="visual-cell">
+<img alt="Registro complementar da Terra Axial" data-depth=".55" src="https://i.imgur.com/UGLj28H.png"/>
+<img alt="Registro complementar da Terra Axial" data-depth=".55" src="https://i.imgur.com/AnwFBn7.png"/>
+</div>
+<div aria-hidden="true" class="media-hud">
+<span class="media-code">NÓ // CONTRIBUIÇÕES</span>
+<span class="media-counter">SINAL 09</span>
+</div>
+</div>
+<div class="panel-copy">
+<div class="panel-kicker">
+<span class="section-tag tag-green">Créditos autorizados</span>
+<span class="section-tag tag-yellow">Arquivo preservado</span>
+</div>
+<h2 class="panel-title">Agradecimentos</h2>
+<p class="panel-text">Este projeto só pôde assumir sua forma porque nasceu sobre décadas de imaginação. Nosso primeiro agradecimento é à <strong>Marvel Comics</strong>, aos seus autores, artistas e equipes criativas, responsáveis pelo material original que tornou possível revisitar esses personagens, tensionar seus símbolos e imaginar outras maneiras de contar suas histórias. Terra Axial existe como homenagem crítica a esse legado e como espaço de experimentação criado por fãs.</p>
+<div class="credit-block">
+<span class="credit-label">Apoio e processo criativo</span>
+<p class="credit-names">Edu, Guga, Nani, Bia, Chel, Teteu, Rique, Vivi e Krol — pela escuta, pelas ideias, pelas leituras, pelo incentivo e por ajudarem a transformar uma hipótese de universo em uma construção coletiva capaz de continuar crescendo.</p>
+</div>
+<div class="credit-block">
+<span class="credit-label">Construções e espaços</span>
+<p class="credit-names">Mendler, Dandere e Pearl — pelo auxílio na criação de quartos, ambientes e estruturas que dão forma física à experiência do RPG e fazem com que a Terra Axial possa ser atravessada, ocupada e vivida pelos jogadores.</p>
+</div>
+<p class="panel-text">A todos que acompanharam o processo desde abril, ofereceram tempo, crítica, presença e confiança: cada contribuição permanece registrada nas camadas deste arquivo. Nenhum mundo é erguido por uma única pessoa. A Terra Axial é o resultado de muitas mãos mantendo a memória acesa.</p>
+<div class="signature-line">Registro de colaboração // acesso público</div>
+</div>
+</article>
+</div>
+<footer aria-label="Informações técnicas do arquivo" class="bottom-readout">
+<span class="data-stream" id="dataStream">MEM // 0012  |  EIXO ESTÁVEL  |  ORIGEM DOS DADOS: NÓ INTERNO ███████  |  ACESSO NÃO AUTORIZADO</span>
+<span class="clock" id="clock">--:--:-- // BRT</span>
+</footer>
+</main>
+</div>
+<script>
     (() => {
       'use strict';
 
@@ -1225,21 +1240,52 @@
       }
 
       if (!reducedMotion && window.matchMedia('(pointer: fine)').matches) {
-        const panels = document.querySelectorAll('.archive-panel');
-        panels.forEach((panel) => {
-          panel.addEventListener('pointermove', (event) => {
-            const rect = panel.getBoundingClientRect();
-            const x = (event.clientX - rect.left) / rect.width - .5;
-            const y = (event.clientY - rect.top) / rect.height - .5;
-            const image = panel.querySelector('.media-slide.is-active, .credits-visual img');
-            if (image) image.style.transform = `scale(1.035) translate(${x * -7}px, ${y * -6}px)`;
+        const tiltTargets = document.querySelectorAll('[data-tilt]');
+        tiltTargets.forEach((target) => {
+          let frame = null;
+          target.addEventListener('pointermove', (event) => {
+            if (frame) cancelAnimationFrame(frame);
+            frame = requestAnimationFrame(() => {
+              const rect = target.getBoundingClientRect();
+              const nx = (event.clientX - rect.left) / rect.width;
+              const ny = (event.clientY - rect.top) / rect.height;
+              const x = nx - .5;
+              const y = ny - .5;
+              const max = Number(target.dataset.tiltMax || 3);
+              target.style.setProperty('--tilt-x', `${y * max * -1}deg`);
+              target.style.setProperty('--tilt-y', `${x * max}deg`);
+              target.style.setProperty('--spot-x', `${nx * 100}%`);
+              target.style.setProperty('--spot-y', `${ny * 100}%`);
+              target.querySelectorAll('[data-depth]').forEach((layer) => {
+                const depth = Number(layer.dataset.depth || 1);
+                layer.style.setProperty('--depth-x', `${x * depth * -12}px`);
+                layer.style.setProperty('--depth-y', `${y * depth * -10}px`);
+              });
+            });
           });
-
-          panel.addEventListener('pointerleave', () => {
-            panel.querySelectorAll('.media-slide, .credits-visual img').forEach((image) => image.style.transform = '');
+          target.addEventListener('pointerleave', () => {
+            if (frame) cancelAnimationFrame(frame);
+            target.style.setProperty('--tilt-x', '0deg');
+            target.style.setProperty('--tilt-y', '0deg');
+            target.style.setProperty('--spot-x', '50%');
+            target.style.setProperty('--spot-y', '50%');
+            target.querySelectorAll('[data-depth]').forEach((layer) => {
+              layer.style.setProperty('--depth-x', '0px');
+              layer.style.setProperty('--depth-y', '0px');
+            });
           });
         });
       }
+
+      const progressBar = document.querySelector('#entryProgress i');
+      const updateProgress = () => {
+        const maximum = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = maximum > 0 ? (window.scrollY / maximum) * 100 : 0;
+        progressBar.style.width = `${Math.max(0, Math.min(100, progress))}%`;
+      };
+      updateProgress();
+      window.addEventListener('scroll', updateProgress, { passive: true });
+      window.addEventListener('resize', updateProgress);
 
       window.addEventListener('beforeunload', () => {
         if (slideTimer) clearInterval(slideTimer);
